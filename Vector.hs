@@ -11,10 +11,7 @@ data Vector (n::Nat) a where
 
 
 instance Eq a => Eq (Vector n a) where
-    Nil == Nil    = True
-    Nil == Cons{} = False
-    Cons{} == Nil = False
-    a == b        = eq a b
+    (==) = eq
         where
           eq :: Eq a => Vector n1 a -> Vector n2 a -> Bool
           eq Nil Nil    = True
